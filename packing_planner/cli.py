@@ -4,7 +4,7 @@ import argparse
 import os
 import sys
 
-# from .classmodule import MyClass
+from .inventory import Item, Inventory
 # from .funcmodule import my_function
 
 def main():
