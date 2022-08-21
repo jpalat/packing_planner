@@ -10,6 +10,8 @@ from .inventory import Item, Inventory
 def main():
     #create the parser
     parser = argparse.ArgumentParser()
+    inventory = Inventory()
+    inventory.loadInventory()
 
     subparsers = parser.add_subparsers()
     parser_inv = subparsers.add_parser('inventory', help='inventory help')
@@ -29,8 +31,14 @@ def main():
 
     args = parser.parse_args()
 
+    arg_dict = vars(args)
+    print(arg_dict)
 
-    print(args)
+    if arg_dict['item']:
+        print("Adding inventory item")
+        inventory.addItem(arg_dict['item'])
+        inventory.saveInventory()
+
 
 if __name__ == '__main__':
     main()
